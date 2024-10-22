@@ -6,14 +6,14 @@ from pydub import AudioSegment
 from pydub.playback import play
 import threading
 import signal
-
+FILE_LOCATION = ""
 FFMPEG_LOCATION = ""
 AudioSegment.ffmpeg = FFMPEG_LOCATION
 UPDATE_RATE = 0.01 # s
 
 def main():
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, 'tha2.mp3')
+    filename = FILE_LOCATION
     audio = threading.Thread(target=playAndSyncAudio, args=(filename,))    
 
     global r, g, data, frame_count, extra_frames
